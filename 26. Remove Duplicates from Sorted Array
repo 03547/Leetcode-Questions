@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        unordered_set<int> mp;
+        int index=0;
+        for(int i: nums){
+            if(mp.find(i)==mp.end())
+            {
+                mp.insert(i);
+                nums[index]=i;
+                index++;
+
+            }
+        }
+        return index;
+
+    }
+};
+
+
+or optimal solution 
+  int removeDuplicates(vector<int>& nums) {
+        
+        int index=0;
+       for(int i=1;i<nums.size();i++){
+        if(nums[i]!=nums[index]){
+
+            index++;
+            nums[index]=nums[i];
+        }
+       }
+       return index+1;
+
+
+        
+    }
